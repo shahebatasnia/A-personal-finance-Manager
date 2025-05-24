@@ -1,0 +1,32 @@
+import javax.swing.*;
+
+public class IncomeFrame extends JFrame {
+    public IncomeFrame() {
+        setTitle("Add Income");
+        setSize(300, 200);
+        setLocationRelativeTo(null);
+
+        JLabel label = new JLabel("Amount:");
+        JTextField amountField = new JTextField(10);
+        JButton addButton = new JButton("Add");
+
+        JPanel panel = new JPanel();
+        panel.add(label);
+        panel.add(amountField);
+        panel.add(addButton);
+        add(panel);
+
+        addButton.addActionListener(e -> {
+            try {
+                double amount = Double.parseDouble(amountField.getText());
+                FinanceManager.addIncome(amount);
+                JOptionPane.showMessageDialog(this, "Income added successfully.");
+                dispose();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Enter a valid number.");
+            }
+        });
+
+        setVisible(true);
+    }
+}
