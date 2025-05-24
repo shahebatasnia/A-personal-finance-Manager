@@ -1,0 +1,32 @@
+import javax.swing.*;
+
+public class ExpenseFrame extends JFrame {
+    public ExpenseFrame() {
+        setTitle("Add Expense");
+        setSize(300, 200);
+        setLocationRelativeTo(null);
+
+        JLabel label = new JLabel("Amount:");
+        JTextField amountField = new JTextField(10);
+        JButton addButton = new JButton("Add");
+
+        JPanel panel = new JPanel();
+        panel.add(label);
+        panel.add(amountField);
+        panel.add(addButton);
+        add(panel);
+
+        addButton.addActionListener(e -> {
+            try {
+                double amount = Double.parseDouble(amountField.getText());
+                FinanceManager.addExpense(amount);
+                JOptionPane.showMessageDialog(this, "Expense added successfully.");
+                dispose();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Enter a valid number.");
+            }
+        });
+
+        setVisible(true);
+    }
+}
