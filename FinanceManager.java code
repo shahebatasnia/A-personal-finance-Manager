@@ -1,0 +1,20 @@
+public class FinanceManager {
+    private static double totalIncome = 0;
+    private static double totalExpense = 0;
+
+    public static void addIncome(double amount) {
+        totalIncome += amount;
+    }
+
+    public static void addExpense(double amount) {
+        totalExpense += amount;
+    }
+
+    public static double getTotalIncome() {
+        return totalIncome;
+    }
+
+    public static double getTotalExpense() {
+        return totalExpense;
+    }
+}
