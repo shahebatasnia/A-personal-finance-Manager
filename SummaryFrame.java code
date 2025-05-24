@@ -1,0 +1,25 @@
+import javax.swing.*;
+
+public class SummaryFrame extends JFrame {
+    public SummaryFrame() {
+        setTitle("Summary");
+        setSize(300, 150);
+        setLocationRelativeTo(null);
+
+        double income = FinanceManager.getTotalIncome();
+        double expense = FinanceManager.getTotalExpense();
+        double balance = income - expense;
+
+        JLabel incomeLabel = new JLabel("Total Income: $" + income);
+        JLabel expenseLabel = new JLabel("Total Expense: $" + expense);
+        JLabel balanceLabel = new JLabel("Balance: $" + balance);
+
+        JPanel panel = new JPanel();
+        panel.add(incomeLabel);
+        panel.add(expenseLabel);
+        panel.add(balanceLabel);
+        add(panel);
+
+        setVisible(true);
+    }
+}
