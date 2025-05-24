@@ -1,0 +1,26 @@
+import javax.swing.*;
+
+public class DashboardFrame extends JFrame {
+    public DashboardFrame() {
+        setTitle("Dashboard");
+        setSize(400, 200);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JButton incomeButton = new JButton("Add Income");
+        JButton expenseButton = new JButton("Add Expense");
+        JButton summaryButton = new JButton("View Summary");
+
+        JPanel panel = new JPanel();
+        panel.add(incomeButton);
+        panel.add(expenseButton);
+        panel.add(summaryButton);
+        add(panel);
+
+        incomeButton.addActionListener(e -> new IncomeFrame());
+        expenseButton.addActionListener(e -> new ExpenseFrame());
+        summaryButton.addActionListener(e -> new SummaryFrame());
+
+        setVisible(true);
+    }
+}
